@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+ <head>
+	         <style>
+            table {
+              border-collapse: collapse;
+              width: 100%;
+            }
+
+            th, td {
+              text-align: left;
+              padding: 8px;
+            }
+
+            tr:nth-child(even){background-color: #f2f2f2}
+
+            th {
+              background-color: #83D3C9;
+              color: white;
+            }
+
+            th {text-align: left;}
+        </style>
+  <title>Employee</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+ 
+ </head>
+	<h1>Today's Appointments:</h1>
+ <body ng-app='myapp'>
+
+  <div ng-controller="userCtrl">
+ 
+    <table border="1">
+ 
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Stylist</th>
+		<th>Appointment Date</th>
+		<th>Appointment Type</th>
+      </tr>
+  
+      <!-- Display records -->
+      <tr ng-repeat="appointment in appointment_master">
+        <td>{{appointment.name}}</td>
+        <td>{{appointment.phone}}</td>
+        <td>{{appointment.stylistN}}</td>
+		<td>{{appointment.aptdate}}</td>
+		<td>{{appointment.apttype}}</td>
+      </tr>
+ 
+    </table>
+  </div>
+ <script>
+var fetch = angular.module('myapp', []);
+
+fetch.controller('userCtrl', ['$scope', '$http', function ($scope, $http) {
+ $http({
+  method: 'get',
+  url: 'getCurrent.php'
+ }).then(function successCallback(response) {
+  // Store response data
+  $scope.appointment_master = response.data;
+ });
+}]);
+
+</script>
+	
+</body>
+</html>

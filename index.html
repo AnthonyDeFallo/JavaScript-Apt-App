@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<!--
+	Twenty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Appointment</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> 
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
+
+	</head>
+	<body class="no-sidebar is-preload" ng-app="ngApp">
+		<div id="page-wrapper">
+			<header id="header">
+					<h1 id="logo"><a href="index.html"> <span> </span></a></h1>
+					<br>
+					<nav id="nav">
+						<ul>
+							<li>
+								<a href="index.html" class="button primary">Home</a>
+							</li>
+							<li><a href="queryN.html">Search Appointment</a></li>
+						</ul>
+					</nav>
+				</header>
+		</div>
+		
+<script type='text/javascript'>
+$(function(){
+var overlay = $('<div id="overlay"></div>');
+overlay.show();
+overlay.appendTo(document.body);
+$('.popup').show();
+$('.close').click(function(){
+$('.popup').hide();
+overlay.appendTo(document.body).remove();
+return false;
+});
+
+
+ 
+
+$('.x').click(function(){
+$('.popup').hide();
+overlay.appendTo(document.body).remove();
+return false;
+});
+});
+</script>
+<div class='popup'>
+<div class='cnt223'>
+<h1>Help</h1>
+<p>
+For your phone number, please ensure you enter it as one long string without dashes, parenthesis, or periods, such as 5555555555
+<br/>
+<br/>
+<a href='' class='close'>Close</a>
+</p>
+</div>
+</div>
+  		<div class="container">
+  			<br><br>
+    		<h2>Make An Appointment</h2>
+    		<p>Please fill in this form to make your appointment.</p>
+			
+
+	<div>		
+			<hr>
+    <form method="POST" action="add.php" name="makeApt">
+    <label for="first_name"><b>First Name</b></label>
+    <input type="text" placeholder="Enter First Name" name="first_name" ng-model="first_name" required>
+		<span style="color:red" ng-show="makeApt.first_name.$touched && makeApt.first_name.$invalid"><b>First name is required.</b><br></span>
+    <label for="last_name"><b>Last Name</b></label>
+    <input type="text" placeholder="Enter Last Name" name="last_name" ng-model="last_name" required>
+		<span style="color:red" ng-show="makeApt.last_name.$touched && makeApt.last_name.$invalid"><b>Last name is required.</b><br></span>
+    <label for="phone"><b>Phone Number</b></label>
+    <input type="text" placeholder="Enter Phone Number, No Dashes" name="phone" ng-model="phone" required>
+		<span style="color:red" ng-show="makeApt.phone.$touched && makeApt.phone.$invalid"><b>Phone number is required.</b><br></span>
+    <label for="email"><b>Email</b></label>
+    <input type="email" placeholder="Enter Email" name="email" ng-model="email" required>
+		<span style="color:red" ng-show="makeApt.email.$touched && makeApt.email.$invalid">
+			<span ng-show="makeApt.email.$error.required"><b>Email is required.</b><br></span>
+		<span ng-show="makeApt.email.$error.email"><b>Email is invalid.</b><br></span>
+		</span>
+    <label for="treatment"><b>What We Can Do For You?</b></label>
+  		<select name="apt_type">
+    		<option value="Haircut">Haircut</option>
+		    <option value="Coloring">Coloring</option>
+		    <option value="Haircut and Coloring">Haircut and Coloring</option>
+  		    <option value="Nails">Nails</option>
+ 		    <option value="Pedicure/Manicure">Pedicure/Manicure</option>
+  		</select>
+
+    
+    	<label for="name"><b>Select Stylist:</b></label>
+  		<select name="stylist">
+    		<option value="John Lee">Jon Lee</option>
+		    <option value="Joe Wessel">Joe Wessel</option>
+		    <option value="Tim Mullins">Tim Mullins</option>
+			<option value="John Lee">NO PREFERENCE</option>
+  		</select>
+  		<br>
+  		<b>Appointment (Preferred Date):</b><input type="datetime-local" name="apt_date" required>
+	    <div class="clearfix">
+	    	<br>
+     		<button type="submit" class="button primary">Set Appointment</button>
+    	</div>
+    </form>
+    <div class="col-12">
+		<ul class="buttons">
+		<a href="index.html" class="button">Cancel</a>
+		</ul>
+	</div>
+</form>
+		</div>
+
+						<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollgress.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script> var app = angular.module('ngApp', ['ngAnimate']); </script>
+
+						<!-- Footer -->
+				<footer id="footer">
+
+					<ul class="copyright">
+						<li>&copy; We Don't Know</li><li>FrontDesk: <a href="query.html">View Today's Appointments</a></li>
+					</ul>
+
+				</footer>
+
+
+
+</div>
+	</body>
+</html>				
+
+
+
+
