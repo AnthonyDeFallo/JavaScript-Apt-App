@@ -1,66 +1,32 @@
-<!DOCTYPE HTML>
-<!--
-	Twenty by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Staff Section</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="no-sidebar is-preload">
-		<div id="page-wrapper">
-			<header id="header">
-					<h1 id="logo"><a href="index.html"> <span> </span></a></h1>
-					<br>
-					<nav id="nav">
-						<ul>
-							<li>
-								<a href="index.html">Home</a>
-							</li>
-							<li><a href="query.html">Search Appointment</a></li>
-						</ul>
-					</nav>
-				</header>
-  		<div class="container">
-  			<br><br>
-    		<h2>Employees</h2>
-    	</div>
-   	<form method="POST" action="day.php">
-	    <div class="clearfix">
-	    	<br>
-     		<button type="submit" class="button primary">Search Appointment</button>
-    	</div>
-	</form>
-	
-						<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollgress.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+<!DOCTYPE html>
+<head>
+<title>Tip Calculator</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
 
-						<!-- Footer -->
-				<footer id="footer">
-
-					<ul class="copyright">
-						<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-
-				</footer>
-
+<body>
+<div id="wrapper">
+    <header>
+        <h1>Tip Calculator</h1>
+    </header>
+    <form action="javascript:void(calc())">
+        Amount: $<input id="bill" type="text">
+        <br>
+        <input type="submit" value="Calculate">
+        <br>
+        Tip: <span id="tip"></span>
+        <br>
+        Total: <span id="total"></span>
+    </form>
 </div>
-	</body>
-</html>				
+<script>
+    function calc() {
+        var bill = Number(document.getElementById('bill').value);
+        var tip = bill * .15;
+        var total_bill = bill + tip;
 
-
-
-
+        document.getElementById("tip").innerHTML= "$"+Number(tip).toFixed(2);
+        document.getElementById("total").innerHTML= "$"+Number(total_bill).toFixed(2);         
+    }
+</script>
+</body>

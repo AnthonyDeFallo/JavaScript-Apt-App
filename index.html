@@ -117,8 +117,37 @@ For your phone number, please ensure you enter it as one long string without das
 		<ul class="buttons">
 		<a href="index.html" class="button">Cancel</a>
 		</ul>
+		<hr>
 	</div>
 </form>
+	<div id="wrapper">
+    <header>
+        <h1>Tip Calculator</h1>
+    </header>
+    <form action="javascript:void(calc())">
+        Amount: $<input id="bill" type="text">
+        <br>
+		Tip Amount (in percent, NO Percent sign): $<input id="tipp" type="text">
+        <input type="submit" value="Calculate">
+        <br>
+        Tip: <span id="tip"></span>
+        <br>
+        Total: <span id="total"></span>
+    </form>
+</div>
+<script>
+    function calc() {
+        var bill = Number(document.getElementById('bill').value);
+		var tipp = Number(document.getElementById('tipp').value);
+        var tip = bill * (tipp/100);
+        var total_bill = bill + tip;
+
+        document.getElementById("tip").innerHTML= "$"+Number(tip).toFixed(2);
+        document.getElementById("total").innerHTML= "$"+Number(total_bill).toFixed(2);         
+    }
+</script>
+			
+			
 		</div>
 
 						<!-- Scripts -->
